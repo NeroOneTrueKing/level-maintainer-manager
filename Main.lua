@@ -145,8 +145,8 @@ end
 
 function set_stock(item, quantity, batch)
 	-- is it currently being stocked?
-	if stockedItem[itemID(item)] then
-		local address, slot = stockedItem[itemID(item)].address, stockedItem[itemID(item)].slot;
+	if stockedItems[itemID(item)] then
+		local address, slot = stockedItems[itemID(item)].address, stockedItems[itemID(item)].slot;
 		component.invoke(address, "setSlot", slot, db.address, 1, quantity, batch);
 	else
 		local address, slot = get_open_slot();
